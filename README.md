@@ -4,20 +4,20 @@
 [![TypeScript](https://img.shields.io/badge/Language-TypeScript-blue.svg)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-18+-brightgreen.svg)](https://nodejs.org/)
 [![Allure Report](https://img.shields.io/badge/Report-Allure-ff69b4.svg)](https://allurereport.org/)
-[![CI/CD](https://img.shields.io/badge/CI%2FCD-Jenkins-orange.svg)](https://www.jenkins.io/)
+[![GitHub Actions](https://img.shields.io/badge/CI-GitHub%20Actions-blue.svg)](https://github.com/features/actions)
 
-A scalable, robust End-to-End (E2E) Test Automation Framework for the **OpenCart** application built using **Playwright**, **TypeScript**, and the **Page Object Model (POM)** design pattern. It includes continuous integration setup via **Jenkins** and rich reporting with **Allure**.
+A scalable, robust End-to-End (E2E) Test Automation Framework for the **OpenCart** application built using **Playwright**, **TypeScript**, and the **Page Object Model (POM)** design pattern. The framework supports local execution, GitHub Actions CI, and rich reporting with **Allure**.
 
 ---
 
 ## 📌 Features
 
 - **Page Object Model (POM):** Clean separation of UI elements, actions, and test assertions.
-- **Cross-Browser Testing:** Supports Chromium, Firefox, WebKit, and mobile viewports out of the box.
-- **Parallel Test Execution:** High-speed execution with Playwright's built-in runner.
-- **Data-Driven Automation:** Dynamic test data management using external JSON fixtures.
-- **Rich Test Reporting:** Integrated with **Allure Reports** and standard Playwright HTML reports.
-- **CI/CD Ready:** Configured for local and remote execution via **Jenkins**.
+- **Cross-Browser Testing:** Supports Chromium, Firefox, and WebKit.
+- **Parallel Test Execution:** High-speed execution with Playwright's built-in test runner.
+- **Data-Driven Testing:** Test data managed using external JSON files.
+- **Rich Test Reporting:** Integrated with Allure Reports and Playwright HTML Reports.
+- **GitHub Actions Ready:** Supports automated test execution through GitHub Actions.
 
 ---
 
@@ -26,30 +26,34 @@ A scalable, robust End-to-End (E2E) Test Automation Framework for the **OpenCart
 ```text
 OpencartFramewrok/
 ├── pages/                   # Page Object Classes
-│   ├── HomePage.ts          # Locators & actions for Home Page
-│   ├── LoginPage.ts         # Locators & actions for Login Page
-│   ├── AccountPage.ts       # Locators & actions for User Account Page
-│   ├── RegistrationPage.ts  # Locators & actions for Registration Page
-│   └── ProductPage.ts       # Locators & actions for Cart/Product pages
-├── tests/                   # Test Suite Specs
-│   ├── Login.spec.ts        # Login test scenarios
-│   ├── Registration.spec.ts # User registration test scenarios
-│   └── AddToCart.spec.ts    # E-commerce purchase flow tests
-├── testData/                # Data-driven JSON files
+│   ├── HomePage.ts
+│   ├── LoginPage.ts
+│   ├── AccountPage.ts
+│   ├── RegistrationPage.ts
+│   └── ProductPage.ts
+├── tests/                   # Test Specifications
+│   ├── Login.spec.ts
+│   ├── Registration.spec.ts
+│   └── AddToCart.spec.ts
+├── testData/                # JSON Test Data
 │   └── loginData.json
-├── utils/                   # Shared utility & helper classes
-├── allure-results/          # Raw output data for Allure reporting
-├── playwright.config.ts     # Core Playwright configuration settings
-├── package.json             # NPM dependencies and scripts
-├── tsconfig.json            # TypeScript compiler settings
-└── README.md                # Project documentation
+├── utils/                   # Utility Classes
+├── allure-results/          # Allure Results
+├── playwright.config.ts     # Playwright Configuration
+├── package.json             # Project Dependencies
+├── tsconfig.json            # TypeScript Configuration
+└── README.md
+```
+
+---
+
 # Prerequisites
 
 Before running the project, make sure the following tools are installed:
 
 - Node.js (v18 or higher)
 - npm (comes with Node.js)
-- Java Development Kit (JDK 17 or 21) *(Required for Allure Reports and Jenkins)*
+- Java Development Kit (JDK 17 or 21) *(Required for Allure Reports)*
 - Git
 
 ---
@@ -91,21 +95,19 @@ npx playwright test
 npx playwright test --headed
 ```
 
-## Run Tests on a Specific Browser
-
-### Chromium
+## Run Tests on Chromium
 
 ```bash
 npx playwright test --project=chromium
 ```
 
-### Firefox
+## Run Tests on Firefox
 
 ```bash
 npx playwright test --project=firefox
 ```
 
-### WebKit
+## Run Tests on WebKit
 
 ```bash
 npx playwright test --project=webkit
@@ -134,8 +136,6 @@ npx playwright show-report
 ```
 
 ## Allure Report
-
-Generate and open the Allure report:
 
 ```bash
 npx allure serve allure-results
