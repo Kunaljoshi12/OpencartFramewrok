@@ -43,3 +43,100 @@ OpencartFramewrok/
 ├── package.json             # NPM dependencies and scripts
 ├── tsconfig.json            # TypeScript compiler settings
 └── README.md                # Project documentation
+# Prerequisites
+
+Before running the project, make sure the following tools are installed:
+
+- Node.js (v18 or higher)
+- npm (comes with Node.js)
+- Java Development Kit (JDK 17 or 21) *(Required for Allure Reports and Jenkins)*
+- Git
+
+---
+
+# Setup & Installation
+
+## 1. Clone the Repository
+
+```bash
+git clone https://github.com/Kunaljoshi12/OpencartFramewrok.git
+cd OpencartFramewrok
+```
+
+## 2. Install Dependencies
+
+```bash
+npm install
+```
+
+## 3. Install Playwright Browsers
+
+```bash
+npx playwright install
+```
+
+---
+
+# Test Execution
+
+## Run All Tests (Headless)
+
+```bash
+npx playwright test
+```
+
+## Run Tests in Headed Mode
+
+```bash
+npx playwright test --headed
+```
+
+## Run Tests on a Specific Browser
+
+### Chromium
+
+```bash
+npx playwright test --project=chromium
+```
+
+### Firefox
+
+```bash
+npx playwright test --project=firefox
+```
+
+### WebKit
+
+```bash
+npx playwright test --project=webkit
+```
+
+## Run a Specific Test File
+
+```bash
+npx playwright test tests/Login.spec.ts
+```
+
+## Run Tests in UI Mode
+
+```bash
+npx playwright test --ui
+```
+
+---
+
+# Reports
+
+## Playwright HTML Report
+
+```bash
+npx playwright show-report
+```
+
+## Allure Report
+
+Generate and open the Allure report:
+
+```bash
+npx allure serve allure-results
+```
